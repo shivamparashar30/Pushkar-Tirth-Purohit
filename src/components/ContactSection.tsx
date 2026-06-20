@@ -5,11 +5,14 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 import { PHONE, PHONE_HREF, WHATSAPP_HREF, EMAIL, EMAIL_HREF, LOCATION, MAP_HREF } from "@/lib/constants";
 import SectionWrapper, { SectionHeading } from "./SectionWrapper";
+import { useTranslation } from "@/lib/i18n";
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper id="contact" alt>
-      <SectionHeading title="Contact Us" subtitle="Reach out for puja bookings, queries, or spiritual guidance" />
+      <SectionHeading title={t("contact.title", "Contact Us")} subtitle={t("contact.subtitle", "Reach out for puja bookings, queries, or spiritual guidance")} />
 
       <div className="grid lg:grid-cols-5 gap-8 items-start">
         {/* Contact Info */}
@@ -23,7 +26,7 @@ export default function ContactSection() {
           <a href={PHONE_HREF} className="flex items-center gap-4 bg-card-bg border border-card-border rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
             <div className="w-10 h-10 rounded-lg bg-saffron/10 text-saffron flex items-center justify-center"><Phone size={20} /></div>
             <div>
-              <p className="text-xs text-text-muted">Phone</p>
+              <p className="text-xs text-text-muted">{t("contact.phone", "Phone")}</p>
               <p className="font-medium text-foreground">{PHONE}</p>
             </div>
           </a>
@@ -31,7 +34,7 @@ export default function ContactSection() {
           <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-card-bg border border-card-border rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
             <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 text-[#25D366] flex items-center justify-center"><WhatsAppIcon size={20} /></div>
             <div>
-              <p className="text-xs text-text-muted">WhatsApp</p>
+              <p className="text-xs text-text-muted">{t("contact.whatsapp", "WhatsApp")}</p>
               <p className="font-medium text-foreground">{PHONE}</p>
             </div>
           </a>
@@ -39,7 +42,7 @@ export default function ContactSection() {
           <a href={EMAIL_HREF} className="flex items-center gap-4 bg-card-bg border border-card-border rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
             <div className="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center"><Mail size={20} /></div>
             <div>
-              <p className="text-xs text-text-muted">Email</p>
+              <p className="text-xs text-text-muted">{t("contact.email", "Email")}</p>
               <p className="font-medium text-foreground">{EMAIL}</p>
             </div>
           </a>
@@ -47,7 +50,7 @@ export default function ContactSection() {
           <a href={MAP_HREF} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-card-bg border border-card-border rounded-xl p-4 hover:shadow-md hover:-translate-y-0.5 transition-all">
             <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center"><MapPin size={20} /></div>
             <div>
-              <p className="text-xs text-text-muted">Location</p>
+              <p className="text-xs text-text-muted">{t("contact.location", "Location")}</p>
               <p className="font-medium text-foreground">{LOCATION}</p>
             </div>
           </a>
@@ -75,7 +78,7 @@ export default function ContactSection() {
         >
           <div className="bg-card-bg border border-card-border rounded-2xl overflow-hidden">
             <div className="p-5">
-              <h3 className="text-lg font-bold text-text-heading mb-1">Visit Our Location</h3>
+              <h3 className="text-lg font-bold text-text-heading mb-1">{t("contact.visitLocation", "Visit Our Location")}</h3>
               <p className="text-sm text-text-muted">{LOCATION}</p>
             </div>
             <div className="relative h-[320px] sm:h-[380px]">
@@ -89,11 +92,11 @@ export default function ContactSection() {
           <div className="flex gap-3 mt-3">
             <a href={MAP_HREF} target="_blank" rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-card-bg border border-card-border rounded-xl hover:border-saffron hover:text-saffron transition-all text-sm font-medium">
-              <MapPin size={15} /> Open Maps
+              <MapPin size={15} /> {t("contact.openMaps", "Open Maps")}
             </a>
             <a href={MAP_HREF} target="_blank" rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-saffron/10 text-saffron border border-saffron/15 rounded-xl hover:bg-saffron hover:text-white transition-all text-sm font-medium">
-              Get Directions
+              {t("contact.getDirections", "Get Directions")}
             </a>
           </div>
         </motion.div>

@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper, { SectionHeading } from "./SectionWrapper";
+import { useTranslation } from "@/lib/i18n";
 
 export default function BrahmaTemple() {
+  const { t } = useTranslation();
+
   const scrollToBooking = () => {
     document.querySelector("#book-puja")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -12,8 +15,8 @@ export default function BrahmaTemple() {
   return (
     <SectionWrapper id="brahma-temple" alt>
       <SectionHeading
-        title="Brahma Temple, Pushkar"
-        subtitle="One of the very few temples in the world dedicated to Lord Brahma"
+        title={t("brahma.title", "Brahma Temple, Pushkar")}
+        subtitle={t("brahma.subtitle", "One of the very few temples in the world dedicated to Lord Brahma")}
       />
 
       <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -48,24 +51,24 @@ export default function BrahmaTemple() {
           className="space-y-4"
         >
           <div className="space-y-3 text-foreground/80 leading-relaxed">
-            <h3 className="text-2xl font-bold text-text-heading">History & Significance</h3>
+            <h3 className="text-2xl font-bold text-text-heading">{t("brahma.historyTitle", "History & Significance")}</h3>
             <p>
-              The Brahma Temple is approximately 2,000 years old and is one of the very few temples in the world dedicated to Lord Brahma, the Creator among the Holy Trinity (Trimurti).
+              {t("brahma.p1", "The Brahma Temple is approximately 2,000 years old and is one of the very few temples in the world dedicated to Lord Brahma, the Creator among the Holy Trinity (Trimurti).")}
             </p>
             <p>
-              According to the Padma Purana, Lord Brahma killed the demon Vajranabha with a lotus flower. Petals fell at three places creating three lakes, with Pushkar being the most sacred. Lord Brahma then performed a grand yagna here.
+              {t("brahma.p2", "According to the Padma Purana, Lord Brahma killed the demon Vajranabha with a lotus flower. Petals fell at three places creating three lakes, with Pushkar being the most sacred. Lord Brahma then performed a grand yagna here.")}
             </p>
             <p>
-              The temple features a distinctive red spire, marble flooring, and a silver turtle. Devotees worldwide visit for blessings, especially during Kartik Purnima.
+              {t("brahma.p3", "The temple features a distinctive red spire, marble flooring, and a silver turtle. Devotees worldwide visit for blessings, especially during Kartik Purnima.")}
             </p>
           </div>
 
           <div className="bg-saffron/5 border border-saffron/15 rounded-xl p-5">
-            <h4 className="font-bold text-text-heading mb-1.5">Guided Darshan Available</h4>
-            <p className="text-sm text-text-muted mb-3">Our priest will accompany you for special abhishek and archana according to tradition.</p>
+            <h4 className="font-bold text-text-heading mb-1.5">{t("brahma.darshanTitle", "Guided Darshan Available")}</h4>
+            <p className="text-sm text-text-muted mb-3">{t("brahma.darshanDesc", "Our priest will accompany you for special abhishek and archana according to tradition.")}</p>
             <button onClick={scrollToBooking}
               className="px-5 py-2.5 bg-saffron-gradient text-white font-medium rounded-full text-sm hover:shadow-lg transition-all">
-              Book Darshan
+              {t("brahma.bookDarshan", "Book Darshan")}
             </button>
           </div>
         </motion.div>

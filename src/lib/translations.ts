@@ -1,0 +1,145 @@
+type TranslationMap = Record<string, string>;
+
+export const translations: { hi: TranslationMap } = {
+  hi: {
+    // Nav
+    "nav.home": "होम",
+    "nav.about": "परिचय",
+    "nav.services": "सेवाएं",
+    "nav.gallery": "गैलरी",
+    "nav.bookPuja": "पूजा बुक करें",
+    "nav.contact": "संपर्क",
+
+    // Hero
+    "hero.title1": "पवित्र वैदिक अनुष्ठान",
+    "hero.title2": "पवित्र पुष्कर सरोवर पर",
+    "hero.subtitle": "पिंड दान, अस्थि विसर्जन, पितृ दोष निवारण, सुख शांति पूजा और पुष्कर में दिव्य आशीर्वाद के लिए पारंपरिक तीर्थ पुरोहित सेवाएं।",
+    "hero.bookPuja": "पूजा बुक करें",
+    "hero.whatsapp": "WhatsApp करें",
+    "hero.badge1": "100+ वर्ष की परंपरा",
+    "hero.badge2": "प्रामाणिक वैदिक अनुष्ठान",
+    "hero.badge3": "हजारों सेवित",
+
+    // About
+    "about.title": "पवित्र पुष्कर के बारे में",
+    "about.subtitle": "भारत के सबसे पवित्र तीर्थ स्थलों में से एक, भगवान ब्रह्मा द्वारा आशीर्वादित",
+    "about.imageCaption": "पवित्र पुष्कर सरोवर - दिव्य आशीर्वाद की झील",
+    "about.heading": "भगवान ब्रह्मा की पवित्र नगरी",
+    "about.p1": "पुष्कर भारत के सबसे प्राचीन और पवित्र शहरों में से एक है, जो राजस्थान की अरावली पहाड़ियों में बसा है। प्राचीन शास्त्रों के अनुसार, भगवान ब्रह्मा ने यहां एक यज्ञ किया था, जिससे यह विश्व में भगवान ब्रह्मा को समर्पित एकमात्र मंदिर वाला स्थान बन गया।",
+    "about.p2": "पुष्कर सरोवर की रचना तब हुई मानी जाती है जब भगवान ब्रह्मा के हाथों से एक कमल की पंखुड़ी गिरी। पवित्र स्नान सभी पापों का नाश करता है और मोक्ष प्रदान करता है। सरोवर 52 पवित्र घाटों से घिरा है।",
+    "about.p3": "यहां पिंड दान, अस्थि विसर्जन, तर्पण और पुष्कर स्नान संकल्प करने का अपार आध्यात्मिक पुण्य प्राप्त होता है। हमारा परिवार 100 वर्षों से अधिक समय से भक्तों को इन पवित्र अनुष्ठानों में मार्गदर्शन कर रहा है।",
+    "about.stat.ghats": "पवित्र घाट",
+    "about.stat.temples": "मंदिर",
+    "about.stat.service": "सेवा के वर्ष",
+    "about.stat.pilgrimage": "तीर्थयात्रा के वर्ष",
+    "about.heritage.title": "हमारी 100+ वर्ष की विरासत",
+    "about.heritage.subtitle": "हमारे तीर्थ पुरोहित परिवार ने पीढ़ियों से पवित्र वैदिक परंपराओं को संरक्षित किया है, भक्ति, प्रामाणिकता और पारदर्शिता के साथ भक्तों का मार्गदर्शन किया है।",
+    "about.heritage.item1": "पीढ़ियों का पुरोहित परिवार",
+    "about.heritage.item2": "प्रामाणिक वैदिक अनुष्ठान",
+    "about.heritage.item3": "व्यक्तिगत मार्गदर्शन",
+    "about.heritage.item4": "पारदर्शी प्रक्रिया",
+    "about.heritage.item5": "WhatsApp सहायता",
+    "about.heritage.item6": "अंग्रेजी और हिन्दी",
+    "about.heritage.item7": "अंतर्राष्ट्रीय सहायता",
+
+    // Services
+    "services.title": "हमारी पवित्र पूजा सेवाएं",
+    "services.subtitle": "प्राचीन परंपराओं के कड़े पालन के साथ भक्तिपूर्वक किए जाने वाले प्रामाणिक वैदिक अनुष्ठान",
+    "services.bookNow": "अभी बुक करें",
+    "service.sukhShanti": "सुख शांति पूजा",
+    "service.sukhShanti.desc": "शांति, समृद्धि और पारिवारिक सामंजस्य के लिए पवित्र अनुष्ठान।",
+    "service.pitraDosh": "पितृ दोष निवारण पूजा",
+    "service.pitraDosh.desc": "जीवन की प्रगति को प्रभावित करने वाले पैतृक कर्म बाधाओं का निवारण।",
+    "service.pindDaan": "पिंड दान",
+    "service.pindDaan.desc": "दिवंगत आत्माओं की मुक्ति (मोक्ष) सुनिश्चित करने वाला पवित्र अर्पण।",
+    "service.asthiVisarjan": "अस्थि विसर्जन",
+    "service.asthiVisarjan.desc": "पुष्कर के पवित्र जल में अस्थियों का पावन विसर्जन।",
+    "service.snanSankalp": "पुष्कर स्नान संकल्प",
+    "service.snanSankalp.desc": "आध्यात्मिक पुण्य बढ़ाने वाला पवित्र स्नान से पहले का विशेष अनुष्ठान।",
+    "service.brahmaDarshan": "ब्रह्मा मंदिर दर्शन",
+    "service.brahmaDarshan.desc": "विश्व प्रसिद्ध ब्रह्मा मंदिर में मार्गदर्शित पूजा।",
+    "service.grahShanti": "ग्रह शांति पूजा",
+    "service.grahShanti.desc": "नकारात्मक प्रभावों को निष्प्रभावी करने के लिए ग्रह शांति अनुष्ठान।",
+    "service.bhogPuja": "भोग पूजा",
+    "service.bhogPuja.desc": "वैदिक मंत्रों के साथ देवताओं को विशेष भोग अर्पण।",
+    "service.narayanBali": "नारायण बलि पूजा",
+    "service.narayanBali.desc": "आत्माओं को शांत करने और पारिवारिक श्रापों को दूर करने का पैतृक अनुष्ठान।",
+    "service.tarpan": "तर्पण अनुष्ठान",
+    "service.tarpan.desc": "वैदिक मंत्रों के साथ पूर्वजों के लिए पवित्र जल अर्पण।",
+    "service.amavasya": "अमावस्या पूजा",
+    "service.amavasya.desc": "पैतृक आशीर्वाद और आध्यात्मिक शक्ति के लिए अमावस्या अनुष्ठान।",
+    "service.purnima": "पूर्णिमा पूजा",
+    "service.purnima.desc": "बढ़े हुए आध्यात्मिक पुण्य के साथ पूर्णिमा समारोह।",
+
+    // Brahma Temple
+    "brahma.title": "ब्रह्मा मंदिर, पुष्कर",
+    "brahma.subtitle": "विश्व में भगवान ब्रह्मा को समर्पित अत्यंत दुर्लभ मंदिरों में से एक",
+    "brahma.historyTitle": "इतिहास और महत्व",
+    "brahma.p1": "ब्रह्मा मंदिर लगभग 2,000 वर्ष पुराना है और विश्व में भगवान ब्रह्मा को समर्पित अत्यंत दुर्लभ मंदिरों में से एक है, जो पवित्र त्रिमूर्ति में सृष्टिकर्ता हैं।",
+    "brahma.p2": "पद्म पुराण के अनुसार, भगवान ब्रह्मा ने राक्षस वज्रनाभ को कमल पुष्प से मारा। पंखुड़ियां तीन स्थानों पर गिरीं जिससे तीन झीलें बनीं, पुष्कर सबसे पवित्र है। भगवान ब्रह्मा ने फिर यहां एक भव्य यज्ञ किया।",
+    "brahma.p3": "मंदिर में एक विशिष्ट लाल शिखर, संगमरमर का फर्श और एक चांदी का कछुआ है। विश्वभर से भक्त विशेषकर कार्तिक पूर्णिमा पर आशीर्वाद के लिए आते हैं।",
+    "brahma.darshanTitle": "मार्गदर्शित दर्शन उपलब्ध",
+    "brahma.darshanDesc": "हमारे पुजारी परंपरा के अनुसार विशेष अभिषेक और अर्चना के लिए आपके साथ चलेंगे।",
+    "brahma.bookDarshan": "दर्शन बुक करें",
+
+    // Gallery
+    "gallery.title": "पुष्कर गैलरी",
+    "gallery.subtitle": "पुष्कर सरोवर और ब्रह्मा मंदिर के पवित्र क्षण",
+
+    // Testimonials
+    "testimonials.title": "भक्तों के अनुभव",
+    "testimonials.subtitle": "भारत और विदेश से हजारों भक्तों द्वारा विश्वसनीय",
+
+    // Book Puja
+    "book.title": "अपनी पूजा बुक करें",
+    "book.subtitle": "नीचे विवरण भरें और हम आपसे WhatsApp पर जुड़ेंगे",
+    "book.thankYou": "धन्यवाद!",
+    "book.thankYouMsg": "आपका अनुरोध WhatsApp पर भेज दिया गया है।",
+    "book.fullName": "पूरा नाम *",
+    "book.mobile": "मोबाइल नंबर *",
+    "book.whatsappNumber": "WhatsApp नंबर",
+    "book.email": "ईमेल",
+    "book.city": "शहर *",
+    "book.state": "राज्य",
+    "book.country": "देश *",
+    "book.date": "दर्शन तिथि *",
+    "book.familyMembers": "परिवार के सदस्य",
+    "book.pujaType": "पूजा का प्रकार *",
+    "book.message": "संदेश",
+    "book.selectPuja": "पूजा चुनें",
+    "book.bookWhatsApp": "WhatsApp से बुक करें",
+    "book.callToBook": "कॉल करके बुक करें",
+    "book.namePlaceholder": "आपका पूरा नाम",
+    "book.whatsappPlaceholder": "मोबाइल से अलग हो तो",
+    "book.messagePlaceholder": "कोई विशेष आवश्यकता...",
+    "book.countPlaceholder": "संख्या",
+
+    // Contact
+    "contact.title": "संपर्क करें",
+    "contact.subtitle": "पूजा बुकिंग, प्रश्नों या आध्यात्मिक मार्गदर्शन के लिए संपर्क करें",
+    "contact.phone": "फ़ोन",
+    "contact.whatsapp": "WhatsApp",
+    "contact.email": "ईमेल",
+    "contact.location": "स्थान",
+    "contact.visitLocation": "हमारा स्थान देखें",
+    "contact.openMaps": "मैप खोलें",
+    "contact.getDirections": "दिशा निर्देश",
+
+    // Footer
+    "footer.brandDesc": "100 वर्षों से अधिक समय से पुष्कर में भक्तों की सेवा करने वाला पारंपरिक तीर्थ पुरोहित परिवार।",
+    "footer.quickLinks": "त्वरित लिंक",
+    "footer.services": "सेवाएं",
+    "footer.contact": "संपर्क",
+    "footer.copyright": "© 2026 पारंपरिक तीर्थ पुरोहित परिवार, पुष्कर राजस्थान। सर्वाधिकार सुरक्षित।",
+
+    // Common
+    "common.call": "कॉल",
+    "common.callNow": "अभी कॉल करें",
+    "common.whatsapp": "WhatsApp",
+    "common.bookOnWhatsApp": "WhatsApp पर बुक करें",
+
+    // Loading
+    "loading.title": "100+ वर्ष पारंपरिक तीर्थ पुरोहित परिवार",
+    "loading.subtitle": "पुष्कर सरोवर, राजस्थान",
+  },
+};

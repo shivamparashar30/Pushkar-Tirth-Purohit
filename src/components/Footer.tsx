@@ -3,14 +3,15 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 import { PHONE, PHONE_HREF, WHATSAPP_HREF, EMAIL, EMAIL_HREF, MAP_HREF } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Book Puja", href: "#book-puja" },
-  { label: "Contact", href: "#contact" },
+  { key: "nav.home", label: "Home", href: "#home" },
+  { key: "nav.about", label: "About", href: "#about" },
+  { key: "nav.services", label: "Services", href: "#services" },
+  { key: "nav.gallery", label: "Gallery", href: "#gallery" },
+  { key: "nav.bookPuja", label: "Book Puja", href: "#book-puja" },
+  { key: "nav.contact", label: "Contact", href: "#contact" },
 ];
 
 const services = [
@@ -19,6 +20,8 @@ const services = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const nav = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -39,7 +42,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-footer-text/70 mb-4">
-              Traditional Teerth Purohit family serving devotees at Pushkar for over 100 years.
+              {t("footer.brandDesc", "Traditional Teerth Purohit family serving devotees at Pushkar for over 100 years.")}
             </p>
             <div className="flex gap-2.5">
               <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer"
@@ -60,17 +63,17 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-4">Quick Links</h3>
+            <h3 className="text-white font-bold text-sm mb-4">{t("footer.quickLinks", "Quick Links")}</h3>
             <ul className="space-y-2">
               {links.map((l) => (
-                <li key={l.href}><button onClick={() => nav(l.href)} className="text-sm text-footer-text/60 hover:text-gold transition-colors">{l.label}</button></li>
+                <li key={l.href}><button onClick={() => nav(l.href)} className="text-sm text-footer-text/60 hover:text-gold transition-colors">{t(l.key, l.label)}</button></li>
               ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-4">Services</h3>
+            <h3 className="text-white font-bold text-sm mb-4">{t("footer.services", "Services")}</h3>
             <ul className="space-y-2">
               {services.map((s) => (
                 <li key={s}><button onClick={() => nav("#services")} className="text-sm text-footer-text/60 hover:text-gold transition-colors">{s}</button></li>
@@ -80,7 +83,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-4">Contact</h3>
+            <h3 className="text-white font-bold text-sm mb-4">{t("footer.contact", "Contact")}</h3>
             <div className="space-y-2.5">
               <a href={PHONE_HREF} className="flex items-center gap-2 text-sm text-footer-text/60 hover:text-gold transition-colors"><Phone size={14} /> {PHONE}</a>
               <a href={EMAIL_HREF} className="flex items-center gap-2 text-sm text-footer-text/60 hover:text-gold transition-colors"><Mail size={14} /> {EMAIL}</a>
@@ -90,7 +93,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/10 text-center">
-          <p className="text-sm text-footer-text/40">&copy; 2026 Traditional Teerth Purohit Family, Pushkar Rajasthan. All Rights Reserved.</p>
+          <p className="text-sm text-footer-text/40">{t("footer.copyright", "\u00A9 2026 Traditional Teerth Purohit Family, Pushkar Rajasthan. All Rights Reserved.")}</p>
         </div>
       </div>
     </footer>

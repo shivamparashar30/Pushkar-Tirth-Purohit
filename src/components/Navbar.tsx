@@ -5,15 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Menu, X, Sun, Moon, Phone } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
+import LanguageSelector from "./LanguageSelector";
 import { PHONE_HREF, WHATSAPP_HREF } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#book-puja", label: "Book Puja" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", key: "nav.home", label: "Home" },
+  { href: "#about", key: "nav.about", label: "About" },
+  { href: "#services", key: "nav.services", label: "Services" },
+  { href: "#gallery", key: "nav.gallery", label: "Gallery" },
+  { href: "#book-puja", key: "nav.bookPuja", label: "Book Puja" },
+  { href: "#contact", key: "nav.contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -21,6 +23,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setMounted(true);
@@ -76,13 +79,16 @@ export default function Navbar() {
                   scrolled ? "text-foreground" : "text-white/90"
                 }`}
               >
-                {l.label}
+                {t(l.key, l.label)}
               </button>
             ))}
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+            <div className="hidden sm:flex">
+              <LanguageSelector scrolled={scrolled} />
+            </div>
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -93,10 +99,10 @@ export default function Navbar() {
               </button>
             )}
             <a href={PHONE_HREF} className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-saffron-gradient text-white text-sm font-medium rounded-full hover:shadow-lg transition-all">
-              <Phone size={14} /> Call
+              <Phone size={14} /> {t("common.call", "Call")}
             </a>
             <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-[#25D366] text-white text-sm font-medium rounded-full hover:shadow-lg transition-all">
-              <WhatsAppIcon size={14} /> WhatsApp
+              <WhatsAppIcon size={14} /> {t("common.whatsapp", "WhatsApp")}
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -135,6 +141,11 @@ export default function Navbar() {
               <div className="w-10 h-px bg-gradient-to-l from-transparent to-gold" />
             </div>
 
+            {/* Language selector (mobile) */}
+            <div className="mb-4">
+              <LanguageSelector scrolled={true} />
+            </div>
+
             {/* Nav links */}
             <nav className="flex flex-col items-center gap-1">
               {navLinks.map((l, i) => (
@@ -146,7 +157,7 @@ export default function Navbar() {
                   onClick={() => nav(l.href)}
                   className="text-xl font-semibold text-foreground hover:text-saffron transition-colors py-2.5 px-6"
                 >
-                  {l.label}
+                  {t(l.key, l.label)}
                 </motion.button>
               ))}
             </nav>
@@ -162,7 +173,7 @@ export default function Navbar() {
                 href={PHONE_HREF}
                 className="flex items-center justify-center gap-2 py-3 bg-saffron-gradient text-white font-medium rounded-full shadow-lg"
               >
-                <Phone size={16} /> Call Now
+                <Phone size={16} /> {t("common.callNow", "Call Now")}
               </a>
               <a
                 href={WHATSAPP_HREF}
@@ -170,7 +181,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-3 bg-[#25D366] text-white font-medium rounded-full shadow-lg"
               >
-                <WhatsAppIcon size={16} /> WhatsApp
+                <WhatsAppIcon size={16} /> {t("common.whatsapp", "WhatsApp")}
               </a>
             </motion.div>
 

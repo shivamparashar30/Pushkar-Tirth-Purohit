@@ -6,8 +6,10 @@ import { ArrowDown } from "lucide-react";
 import WhatsAppIcon from "./WhatsAppIcon";
 import PanditAnimation from "./PanditAnimation";
 import { WHATSAPP_HREF } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -53,15 +55,13 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-5 tracking-tight">
-            Sacred Vedic Rituals
+            {t("hero.title1", "Sacred Vedic Rituals")}
             <br />
-            <span className="text-shimmer">at Holy Pushkar Sarovar</span>
+            <span className="text-shimmer">{t("hero.title2", "at Holy Pushkar Sarovar")}</span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
-            Traditional Teerth Purohit Services for Pind Daan, Asthi Visarjan,
-            Pitra Dosh Nivaran, Sukh Shanti Puja, and Divine Blessings in
-            Pushkar.
+            {t("hero.subtitle", "Traditional Teerth Purohit Services for Pind Daan, Asthi Visarjan, Pitra Dosh Nivaran, Sukh Shanti Puja, and Divine Blessings in Pushkar.")}
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ export default function HeroSection() {
             onClick={() => scrollTo("#book-puja")}
             className="w-full sm:w-auto px-8 py-3.5 bg-saffron-gradient text-white font-semibold rounded-full shadow-lg shadow-saffron/25 hover:shadow-xl hover:scale-[1.03] transition-all duration-300"
           >
-            Book Puja Now
+            {t("hero.bookPuja", "Book Puja Now")}
           </button>
           <a
             href={WHATSAPP_HREF}
@@ -83,7 +83,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 bg-[#25D366] text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 flex items-center justify-center gap-2"
           >
-            <WhatsAppIcon size={18} /> WhatsApp Now
+            <WhatsAppIcon size={18} /> {t("hero.whatsapp", "WhatsApp Now")}
           </a>
         </motion.div>
 
@@ -93,12 +93,16 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.8 }}
           className="hidden sm:flex flex-wrap items-center justify-center gap-4 sm:gap-6"
         >
-          {["100+ Years Tradition", "Authentic Vedic Rituals", "Thousands Served"].map((badge) => (
+          {[
+            { key: "hero.badge1", fallback: "100+ Years Tradition" },
+            { key: "hero.badge2", fallback: "Authentic Vedic Rituals" },
+            { key: "hero.badge3", fallback: "Thousands Served" },
+          ].map((badge) => (
             <span
-              key={badge}
+              key={badge.key}
               className="flex items-center gap-1.5 glass px-3.5 py-1.5 rounded-full text-white/85 text-sm"
             >
-              <span className="text-gold-light">&#9733;</span> {badge}
+              <span className="text-gold-light">&#9733;</span> {t(badge.key, badge.fallback)}
             </span>
           ))}
         </motion.div>

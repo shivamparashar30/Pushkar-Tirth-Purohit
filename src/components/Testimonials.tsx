@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper, { SectionHeading } from "./SectionWrapper";
+import { useTranslation } from "@/lib/i18n";
 
 const testimonials = [
   { name: "Rajesh Kumar Sharma", city: "Delhi", review: "We visited Pushkar for Pind Daan and received excellent guidance. Everything was performed according to Vedic traditions. The entire family felt deep spiritual peace." },
@@ -15,16 +16,17 @@ const testimonials = [
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(() => setCurrent((p) => (p + 1) % testimonials.length), 5000);
-    return () => clearInterval(t);
+    const timer = setInterval(() => setCurrent((p) => (p + 1) % testimonials.length), 5000);
+    return () => clearInterval(timer);
   }, [paused]);
 
   return (
     <SectionWrapper id="testimonials" alt>
-      <SectionHeading title="What Devotees Say" subtitle="Trusted by thousands of devotees from India and abroad" />
+      <SectionHeading title={t("testimonials.title", "What Devotees Say")} subtitle={t("testimonials.subtitle", "Trusted by thousands of devotees from India and abroad")} />
 
       <div className="max-w-3xl mx-auto" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
         <div className="relative bg-card-bg border border-card-border rounded-2xl p-8 sm:p-10 min-h-[240px]">

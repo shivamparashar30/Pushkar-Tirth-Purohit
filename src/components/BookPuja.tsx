@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { WHATSAPP_NUMBER, PHONE_HREF } from "@/lib/constants";
 import SectionWrapper, { SectionHeading } from "./SectionWrapper";
+import { useTranslation } from "@/lib/i18n";
 
 const pujaTypes = [
   "Sukh Shanti Puja", "Pitra Dosh Puja", "Pind Daan", "Asthi Visarjan",
@@ -12,6 +13,7 @@ const pujaTypes = [
 ];
 
 export default function BookPuja() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     fullName: "", mobile: "", whatsapp: "", email: "",
     city: "", state: "", country: "India",
@@ -36,8 +38,8 @@ export default function BookPuja() {
   return (
     <SectionWrapper id="book-puja">
       <SectionHeading
-        title="Book Your Puja"
-        subtitle="Fill in details below and we will connect with you on WhatsApp"
+        title={t("book.title", "Book Your Puja")}
+        subtitle={t("book.subtitle", "Fill in details below and we will connect with you on WhatsApp")}
       />
 
       <div className="max-w-3xl mx-auto">
@@ -51,79 +53,79 @@ export default function BookPuja() {
           {sent ? (
             <div className="text-center py-12">
               <div className="text-4xl mb-3">🙏</div>
-              <h3 className="text-xl font-bold text-text-heading mb-1">Thank You!</h3>
-              <p className="text-text-muted">Your request has been sent via WhatsApp.</p>
+              <h3 className="text-xl font-bold text-text-heading mb-1">{t("book.thankYou", "Thank You!")}</h3>
+              <p className="text-text-muted">{t("book.thankYouMsg", "Your request has been sent via WhatsApp.")}</p>
             </div>
           ) : (
             <form onSubmit={submit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Full Name *</label>
-                  <input type="text" name="fullName" value={form.fullName} onChange={update} required placeholder="Your full name" className="form-input" />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.fullName", "Full Name *")}</label>
+                  <input type="text" name="fullName" value={form.fullName} onChange={update} required placeholder={t("book.namePlaceholder", "Your full name")} className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Mobile Number *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.mobile", "Mobile Number *")}</label>
                   <input type="tel" name="mobile" value={form.mobile} onChange={update} required placeholder="+91 8112270790" className="form-input" />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">WhatsApp Number</label>
-                  <input type="tel" name="whatsapp" value={form.whatsapp} onChange={update} placeholder="If different from mobile" className="form-input" />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.whatsappNumber", "WhatsApp Number")}</label>
+                  <input type="tel" name="whatsapp" value={form.whatsapp} onChange={update} placeholder={t("book.whatsappPlaceholder", "If different from mobile")} className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Email</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.email", "Email")}</label>
                   <input type="email" name="email" value={form.email} onChange={update} placeholder="your@email.com" className="form-input" />
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">City *</label>
-                  <input type="text" name="city" value={form.city} onChange={update} required placeholder="City" className="form-input" />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.city", "City *")}</label>
+                  <input type="text" name="city" value={form.city} onChange={update} required placeholder={t("book.city", "City")} className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">State</label>
-                  <input type="text" name="state" value={form.state} onChange={update} placeholder="State" className="form-input" />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.state", "State")}</label>
+                  <input type="text" name="state" value={form.state} onChange={update} placeholder={t("book.state", "State")} className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Country *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.country", "Country *")}</label>
                   <input type="text" name="country" value={form.country} onChange={update} required className="form-input" />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Date of Visit *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.date", "Date of Visit *")}</label>
                   <input type="date" name="dateOfVisit" value={form.dateOfVisit} onChange={update} required className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Family Members</label>
-                  <input type="number" name="familyMembers" value={form.familyMembers} onChange={update} placeholder="Count" min="1" className="form-input" />
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.familyMembers", "Family Members")}</label>
+                  <input type="number" name="familyMembers" value={form.familyMembers} onChange={update} placeholder={t("book.countPlaceholder", "Count")} min="1" className="form-input" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Puja Type *</label>
+                  <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.pujaType", "Puja Type *")}</label>
                   <select name="pujaType" value={form.pujaType} onChange={update} required className="form-input">
-                    <option value="">Select Puja</option>
+                    <option value="">{t("book.selectPuja", "Select Puja")}</option>
                     {pujaTypes.map((p) => <option key={p} value={p}>{p}</option>)}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">Message</label>
-                <textarea name="message" value={form.message} onChange={update} placeholder="Any special requirements..." rows={3} className="form-input resize-none" />
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t("book.message", "Message")}</label>
+                <textarea name="message" value={form.message} onChange={update} placeholder={t("book.messagePlaceholder", "Any special requirements...")} rows={3} className="form-input resize-none" />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <button type="submit"
                   className="flex-1 py-3.5 bg-saffron-gradient text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
-                  Book via WhatsApp
+                  {t("book.bookWhatsApp", "Book via WhatsApp")}
                 </button>
                 <a href={PHONE_HREF}
                   className="flex-1 py-3.5 border-2 border-saffron text-saffron font-semibold rounded-full hover:bg-saffron hover:text-white transition-all text-center">
-                  Call to Book
+                  {t("book.callToBook", "Call to Book")}
                 </a>
               </div>
             </form>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import SectionWrapper, { SectionHeading } from "./SectionWrapper";
+import { useTranslation } from "@/lib/i18n";
 
 const images = [
   { src: "/images/1.png", alt: "Pushkar Sarovar sunrise with priests performing rituals" },
@@ -17,12 +18,13 @@ const images = [
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const { t } = useTranslation();
 
   return (
     <SectionWrapper id="gallery">
       <SectionHeading
-        title="Pushkar Gallery"
-        subtitle="Sacred moments from Pushkar Sarovar and Brahma Temple"
+        title={t("gallery.title", "Pushkar Gallery")}
+        subtitle={t("gallery.subtitle", "Sacred moments from Pushkar Sarovar and Brahma Temple")}
       />
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">

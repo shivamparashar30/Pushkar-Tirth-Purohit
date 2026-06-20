@@ -1,5 +1,6 @@
 "use client";
 
+import { LanguageProvider } from "@/lib/i18n";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -16,7 +17,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
       <LoadingScreen />
       <Navbar />
       <main>
@@ -32,6 +33,6 @@ export default function Home() {
       <Footer />
       <WhatsAppButton />
       <ScrollToTop />
-    </>
+    </LanguageProvider>
   );
 }
