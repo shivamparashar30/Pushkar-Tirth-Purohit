@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Traditional Teerth Purohit Services at Holy Pushkar Sarovar | 100+ Years Heritage",
+  title: "Teerth Purohit Pushkar | Sacred Vedic Rituals at Holy Pushkar Sarovar",
   description:
     "Traditional Teerth Purohit family serving devotees at Holy Pushkar Sarovar for over 100 years. Book authentic Vedic rituals - Pind Daan, Asthi Visarjan, Pitra Dosh Nivaran Puja, Brahma Temple Darshan, Pushkar Snan Sankalp, and sacred ceremonies at Pushkar Lake, Rajasthan.",
   keywords: [
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.svg",
   },
 };
 
